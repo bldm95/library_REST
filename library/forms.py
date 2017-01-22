@@ -12,3 +12,5 @@ class DeleteBookForm(forms.ModelForm):
     class Meta:
         model = Book
         fields = ('name', 'author', 'year_of_publication', 'description', 'image')
+
+

@@ -33,23 +33,24 @@
     </head>
 
   <body ng-app="app">
-       <a href="#/"><button class="btn btn-danger">Главная</button></a>
+       <a href='^/'><button class="btn btn-danger">Главная</button></a>
        <a href="#/about"><button class="btn btn-success">О книге</button></a>
-       <a href="#/date"><button class="btn btn-warning">Дата</button></a>
+       <a href="#/edit"><button class="btn btn-warning">Дата</button></a>
 
        <div class="row">
           <div ng-view>
           <!-- Представление будет здесь -->
           </div >
+
+           <div ng-controller="BookController">
+    Id: <span ng-bind="book.id"></span>
+    <br/>
+    Name:<input type="text" ng-model="book.name" />
+    <br/>
+    Author: <input type="text" ng-model="book.author" />
+</div>
         </div >
 
-        <div ng-controller="BookController">
-            Id: <span ng-bind="book.id"></span>
-            <br/>
-            Name:<input type="text" ng-model="book.name" />
-            <br/>
-            Author: <input type="text" ng-model="book.author" />
-        </div>
 
 </body>
 </html>

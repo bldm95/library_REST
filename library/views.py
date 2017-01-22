@@ -5,6 +5,7 @@ from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.shortcuts import render, get_object_or_404
 from .models import Book
 from .forms import BookForm, DeleteBookForm
+import json
 
 
 def xhr_test(request):
@@ -72,3 +73,8 @@ def delete(request, pk):
     else:
         form = DeleteBookForm(instance=book_to_delete)
     return render(request, 'books_list.html', {'form': form})
+
+
+def fbview(request):
+    data = {'name': 'name', 'author': 'author'}
+    return HttpResponse(json.dumps(data), content_type='application/json')
