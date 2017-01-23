@@ -16,3 +16,13 @@ app.controller('BookController', ['$scope', '$http', function($scope, $http) {
           $scope.book = bookData;
      });
 }]);
+
+/*
+* BookList controller
+*/
+app.controller('BookListCtrl', ['$scope', 'BookList',
+    function($scope, BookList) {
+        $scope.books = BookList.postQuery({ typeId: '1' });
+        $scope.headline = 'articles'
+    }
+]);

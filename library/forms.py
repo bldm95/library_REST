@@ -1,6 +1,6 @@
 from django import forms
-from .models import Book
-
+from library.models import Book
+from rest_framework import serializers
 
 class BookForm(forms.ModelForm):
     class Meta:
@@ -14,3 +14,7 @@ class DeleteBookForm(forms.ModelForm):
         fields = ('name', 'author', 'year_of_publication', 'description', 'image')
 
 
+class BookListSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Book
+        fields = ('id', 'name',  'author', 'year_of_publication', 'description', 'image')

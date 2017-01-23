@@ -2,7 +2,7 @@
 {% load staticfiles %}
 <!DOCTYPE html>
 
-<html lang="ru">
+<html lang="en">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
@@ -30,12 +30,13 @@
         <script src="{% static 'bower_components/angular-route/angular-route.min.js' %}"></script>
         <script src="{% static 'app/app.js' %}"></script>
         <script src="{% static 'js/controllers/controllers.js' %}"></script>
+
     </head>
 
   <body ng-app="app">
-       <a href="#/"><button class="btn btn-danger">Главная</button></a>
-       <a href="#/about"><button class="btn btn-success">О книге</button></a>
-       <a href="#/date"><button class="btn btn-warning">Дата</button></a>
+       <a href='#/'><button class="btn btn-danger">Главная</button></a>
+       <a href='#/about'><button class="btn btn-success">О книге</button></a>
+       <a href="#/edit"><button class="btn btn-warning">Изменить</button></a>
 
        <div class="row">
           <div ng-view>
@@ -43,13 +44,6 @@
           </div >
         </div >
 
-        <div ng-controller="BookController">
-            Id: <span ng-bind="book.id"></span>
-            <br/>
-            Name:<input type="text" ng-model="book.name" />
-            <br/>
-            Author: <input type="text" ng-model="book.author" />
-        </div>
 
 </body>
 </html>

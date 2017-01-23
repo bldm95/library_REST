@@ -6,5 +6,5 @@ book_resource = BookResource()
 
 urlpatterns = [
     url(r'^api/', include(book_resource.urls)),
-    url(r'^$', views.books_list, name='home'),
+    url(r'^$', views.book_list, name='home'),
 ]

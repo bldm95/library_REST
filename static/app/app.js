@@ -1,3 +1,4 @@
+
 var app=angular.module('app',['ngRoute']);
 
 app.config(function($routeProvider){
@@ -5,7 +6,7 @@ app.config(function($routeProvider){
   // страница по умолчанию
   .when('/',{
     templateUrl : 'static/pages/homepage.html',
-    controller : 'BookController'
+    controller : 'Homepage'
   })
   // страница о книге
   .when('/about',{

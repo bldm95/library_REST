@@ -4,16 +4,28 @@ from django.http import HttpResponse
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.shortcuts import render, get_object_or_404
 from .models import Book
-from .forms import BookForm, DeleteBookForm
+from .forms import BookForm, DeleteBookForm, BookListSerializer
+from django.http import HttpResponse
+from django.views.decorators.csrf import csrf_protect
+from rest_framework.renderers import JSONRenderer
+from rest_framework.parsers import JSONParser
+
 import json
 
 
-def xhr_test(request):
-    if request.is_ajax():
-        message = "Hello AJAX"
-    else:
-        message = "Hello"
-    return HttpResponse(message)
+class JSONResponse(HttpResponse):
+    def __init__(self, data, **kwargs):
+        content = JSONRenderer().render(data)
+        kwargs['content_type'] = 'application/json'
+        super(JSONResponse, self).__init__(content, **kwargs)
+
+
+# получение книг
+def book_list(request):
+    typeId = 1
+    book = Book.objects.get(id=typeId)
+    serializer = BookListSerializer(book)
+    return JSONResponse(serializer.data)
 
 
 def home(request):
